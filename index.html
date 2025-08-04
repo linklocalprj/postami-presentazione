@@ -1,81 +1,124 @@
-<!DOCTYPE html>
-<html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Presentazione Postami</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #1e1e2f;
-      color: #f0f0f0;
-      overflow: hidden;
-    }
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #1e1e2f;
+    color: #f0f0f0;
+    overflow-x: hidden;
+  }
+
+ .slide {
+  display: none;
+  height: 100vh;
+  width: 100vw;
+  padding: 4rem 2rem 6rem; /* più spazio sopra e sotto */
+  box-sizing: border-box;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  overflow-y: auto;
+}
+
+
+  .slide.active {
+    display: flex;
+  }
+
+  .slide h1, .slide h2 {
+    margin-bottom: 1rem;
+    font-size: 2.4rem;
+  }
+
+  .slide p, .slide ul {
+    font-size: 1.3rem;
+    max-width: 850px;
+  }
+
+  ul {
+    padding-left: 1.2rem;
+    text-align: left;
+  }
+
+img.graph {
+  max-width: 90vw;
+  max-height: 60vh; /* Limita l’altezza al 60% dello schermo */
+  height: auto;
+  width: auto;
+  margin-top: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  object-fit: contain;
+}
+
+
+  .controls {
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    z-index: 100;
+  }
+
+  .controls button {
+    padding: 0.7rem 1.5rem;
+    font-size: 1.1rem;
+    background: #3a3a5a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .controls button:hover {
+    background: #5a5a7a;
+  }
+
+  /* ✅ Mobile Responsive */
+  @media (max-width: 768px) {
     .slide {
-      display: none;
-      height: 100vh;
-      width: 100vw;
-      padding: 4rem;
-      box-sizing: border-box;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      overflow-y: auto;
+      padding: 2rem 1rem;
     }
-    .slide.active {
-      display: flex;
-    }
+
     .slide h1, .slide h2 {
-      margin-bottom: 1rem;
-      font-size: 2.5rem;
+      font-size: 1.7rem;
     }
-    .slide p, .slide ul, .slide ol {
-      font-size: 1.5rem;
-      max-width: 900px;
+
+    .slide p, .slide ul {
+      font-size: 1.05rem;
     }
-    ul, ol {
-      text-align: left;
-      margin: 0 auto;
-    }
+
     img.graph {
       max-width: 90vw;
-      max-height: 65vh;
-      height: auto;
-      width: auto;
-      margin-top: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
-    .controls {
-      position: fixed;
-      bottom: 20px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
+
     .controls button {
-      padding: 0.6rem 1.5rem;
-      font-size: 1.2rem;
-      border: none;
-      background: #3a3a5a;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.2rem;
     }
-    .controls button:hover {
-      background: #5a5a7a;
-    }
-  </style>
+  }
+</style>
+
 </head>
+
 <body>
 
   <div class="slide active">
     <h1>🎯 Cos’è Postami?</h1>
     <p>Postami è la piattaforma che ti aiuta a gestire tutta la tua comunicazione online in modo semplice, automatico e professionale.</p>
+    <img src="app.png" alt="interfaccia postami" class="graph">
   </div>
 
   <div class="slide">
@@ -88,12 +131,14 @@
       <li>Ricevere prenotazioni dai clienti</li>
       <li>Gestire tutto da un’unica app, anche da telefono</li>
     </ul>
+    <img src="pubblicare.png" alt="pubblicazione" class="graph">
   </div>
 
   <div class="slide">
     <h2>📲 A cosa serve davvero?</h2>
     <p>Postami serve a liberarti dal caos della gestione social e a far crescere la tua attività.</p>
     <p>Che tu sia un negoziante, un ristoratore, un’estetista, un fotografo o un freelance, Postami ti accompagna nella creazione dei contenuti, ti aiuta a presentarti meglio e a farti trovare.</p>
+    <img src="infograficaServe.png" alt="a cosa serve postami" class="graph">
   </div>
 
   <div class="slide">
@@ -105,25 +150,28 @@
       <li>📱 Fai tutto solo dal tuo smartphone</li>
       <li>🎯 Centralizzi tutto in un’unica dashboard</li>
     </ul>
+    <img src="utilizzo.png" alt="Facilità di utilizzo" class="graph">
   </div>
 
   <div class="slide">
     <h2>🤖 Non devi essere un esperto</h2>
     <p>L’AI di Postami scrive i contenuti per te, ti suggerisce le immagini, salva le tue impostazioni aziendali e semplifica ogni passaggio.</p>
+    <img src="esperto.png" alt="interfaccia postami" class="graph">
   </div>
 
   <div class="slide">
     <h2>🔁 Un sistema che si adatta a te</h2>
     <p>Postami impara dalla tua attività. Salva stile, tono di voce, obiettivi. Ogni contenuto è coerente con la tua identità.</p>
     <p>I tuoi clienti vedranno un’azienda più organizzata, moderna e affidabile.</p>
+    <img src="azienda.png" alt="postami semplifica le aziende" class="graph">
   </div>
 
   <div class="slide">
     <h2>📌 Cosa puoi fare in concreto?</h2>
     <ul>
-      <li>Generare post con un solo click</li>
-      <li>Ricevere prenotazioni da un link personalizzato</li>
-      <li>Inviare promemoria, conferme e richieste recensione</li>
+      <li>Generare post in pochi passaggi</li>
+      <li>Ricevere prenotazioni da un link personalizzato alla tua attività</li>
+      <li>Inviare promemoria, conferme e richieste recensione tramite comodi pulsanti</li>
       <li>Organizzare tutte le informazioni in un unico spazio</li>
       <li>Lavorare ovunque ti trovi, anche senza computer</li>
     </ul>
@@ -135,12 +183,13 @@
     Un sistema di prenotazione ordinato aumenta la fiducia.<br>
     Una presenza costante migliora la tua reputazione.</p>
     <p>Postami trasforma il modo in cui ti presenti… e le persone lo percepiscono.</p>
+    <img src="clienti.png" alt="Aumento visibilità" class="graph">
   </div>
 
   <div class="slide">
     <h2>📊 Aumento della visibilità</h2>
     <p>Chi utilizza Postami ottiene in media fino a 4 volte più visibilità rispetto a chi gestisce i social manualmente.</p>
-    <img src="aumento visibilità.png" alt="Aumento visibilità" class="graph">
+    <img src="aumento_visibilità.png" alt="Aumento visibilità" class="graph">
   </div>
 
   <div class="slide">
@@ -167,15 +216,24 @@
     <img src="tempo stimato settimanale.png" alt="Tempo medio settimanale" class="graph">
   </div>
 
-  <div class="slide">
-    <h2>📈 Impatto globale su marketing e social</h2>
-    <p>Visibilità, prenotazioni, gestione, facilità d’uso, tempo, centralizzazione: Postami migliora tutto in modo misurabile.</p>
-    <img src="tabella generale impatto postami.png" alt="Impatto complessivo" class="graph">
-  </div>
+<div class="slide">
+  <h2>💳 I Piani di Abbonamento Postami</h2>
+  <p>I piani di abbonamento sono basati sul numero di social che volete gestire</p>
+  <ul>
+    <li><strong>Starter (gratis)</strong> – Include 1 social attivo per 2 settimane. Ideale per provare Postami senza impegno.</li>
+    <li><strong>Minimal (€19.90/mese)</strong> – 1 social attivo, prenotazioni e accesso completo a tutte le funzionalità.</li>
+    <li><strong>Standard (€29.90/mese)</strong> – 2 social attivi, prenotazioni e accesso completo a tutte le funzionalità.</li>
+    <li><strong>Professional (€39.90/mese)</strong> – 3 social attivi, prenotazioni e accesso completo a tutte le funzionalità.</li>
+    <li><strong>Business (€49.90/mese)</strong> – 4 social attivi, prenotazioni e accesso completo a tutte le funzionalità.</li>
+  </ul>
+  <img src="piani.png" alt="Piani Postami" class="graph">
+</div>
+
 
   <div class="slide">
     <h2>🙋‍♂️ Contattaci</h2>
-    <p>Sviluppato da Angelo Di Paolo<br>Sunflower Station - P.IVA 02136420037<br><a href="mailto:info@postami.it" style="color:#a0c4ff;">info@postami.it</a></p>
+    <img src="saluti.png" alt="Ciao da Postami" class="graph">
+    <p>Referente Angelo Di Paolo <br>Azienda Sunflower Station - P.IVA 02136420037<br><p>per qualsiasi dubbio contattare</p><a href="mailto:info@postami.it" style="color:#a0c4ff;">info@postami.it</a></p>
   </div>
 
   <div class="controls">
